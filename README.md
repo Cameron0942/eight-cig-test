@@ -23,7 +23,7 @@ Before getting started, make sure you have:
 Go to the GitHub repository of the project and clone it to your local machine using either Git CLI or GitHub Desktop. Or download the code as .zip file.
 
 ## Frontend Setup (Vite/React)
-Navigate to the root directory of the project (you should folders like: `src`, `public`, `node_modules`).
+Navigate to the root directory of the project (you should see folders like: `src`, `public`, `node_modules`).
 Run `npm install` to install the required frontend dependencies.
 
 ```bash
