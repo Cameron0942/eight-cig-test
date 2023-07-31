@@ -15,9 +15,7 @@ I used a MySQL database locally. I am not sure how the database will behave on y
 
 Before getting started, make sure you have:
 <br>
-[Node.js](https://nodejs.org/) installed on your machine.
-<br>
-[Golang](https://go.dev/doc/install) installed on your system to work with the backend.
+[Node.js](https://nodejs.org/) and [Golang](https://go.dev/doc/install) installed on your machine.
 
 ## Clone the repository
 Go to the GitHub repository of the project and clone it to your local machine using either Git CLI or GitHub Desktop. Or download the code as .zip file.
