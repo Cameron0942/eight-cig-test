@@ -4,6 +4,7 @@ import (
     "fmt"
     "net/http"
     "database/sql"
+    "encoding/json"
 
     "github.com/gorilla/mux"
     "github.com/rs/cors"
@@ -44,7 +45,7 @@ func connectToMySQL(dbUser, dbPassword, dbHost, dbName string, dbPort int) {
 }
 
 // Function to fetch and display data from the table
-func fetchEmployeeData(dbUser, dbPassword, dbHost, dbName string, dbPort int) []string {
+func fetchEmployeeData(dbUser, dbPassword, dbHost, dbName string, dbPort int) []map[string]interface{} {
     // Database connection string
     connStr := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
 
@@ -56,25 +57,34 @@ func fetchEmployeeData(dbUser, dbPassword, dbHost, dbName string, dbPort int) []
     defer db.Close()
 
     // Perform the SELECT query to fetch data from the table
-    rows, err := db.Query("SELECT name, performance FROM employees ORDER BY performance DESC")
+    rows, err := db.Query("SELECT id, name, performance, date FROM employees ORDER BY performance DESC")
     if err != nil {
         panic(err)
     }
     defer rows.Close()
 
     // Prepare a slice to store the employee performance data
-    var employeeData []string
+    var employeeData []map[string]interface{}
 
     // Process the query results and store the data in the slice
     for rows.Next() {
+        var id int
         var name string
         var performance float64
-        err := rows.Scan(&name, &performance)
+        var date string
+        err := rows.Scan(&id, &name, &performance, &date)
         if err != nil {
             panic(err)
         }
-        // Append the data to the slice in the desired format
-        employeeData = append(employeeData, fmt.Sprintf("Name: %s, Performance: %.2f", name, performance))
+        // Create a map for each row with the appropriate keys and values
+        employee := map[string]interface{}{
+            "ID":         id,
+            "Name":       name,
+            "Performance": performance,
+            "Date":       date,
+        }
+        // Append the map to the slice
+        employeeData = append(employeeData, employee)
     }
 
     // Return the employee performance data slice
@@ -105,14 +115,18 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
             dbName := "eightcig-test-db"
             employeeData := fetchEmployeeData(dbUser, dbPassword, dbHost, dbName, dbPort)
     
-            // Prepare the response message
-            response := ""
-            for _, data := range employeeData {
-                response += data + "\n"
+            // Convert the employeeData array to JSON
+            jsonResponse, err := json.Marshal(employeeData)
+            if err != nil {
+                http.Error(w, "Error converting to JSON", http.StatusInternalServerError)
+                return
             }
 
-            // Write the response back to the client
-            fmt.Fprintf(w, response)
+            // Set the Content-Type header to application/json
+            w.Header().Set("Content-Type", "application/json")
+
+            // Write the JSON response back to the client
+            w.Write(jsonResponse)
         } else {
             // If the request method is not GET, send an error response
             http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
