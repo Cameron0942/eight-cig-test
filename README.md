@@ -1,15 +1,67 @@
-# How to Run a Vite App
+# How to run the app
 
-[Vite](https://vitejs.dev/) is a build tool for modern web development that aims to provide a fast and efficient development experience. Here's how you can run a Vite app:
+## A Note On The Database
+I used a MySQL database locally. I am not sure how the database will behave on your machine. That being said the Golang backend server should automatically allocate resources to run the MySQL server on an assigned port on your machine. However if you need credentials to the database for any reason, they can be found in the `server.go` file inside `func main ()`. I will also provide them here: 
+```code
+    //Connection creds to MySQL db
+    dbHost := "localhost"
+    dbPort := 3306 
+    dbUser := "root"
+    dbPassword := "showMessage();"
+    dbName := "eightcig-test-db"
+```
 
 ## Prerequisites
 
-Before getting started, make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+Before getting started, make sure you have:
+<br>
+[Node.js](https://nodejs.org/) installed on your machine.
+<br>
+[Golang](https://go.dev/doc/install) installed on your system to work with the backend.
 
-## Step 1: Create a Vite Project
+## Clone the repository
+Go to the GitHub repository of the project and clone it to your local machine using either Git CLI or GitHub Desktop. Or download the code as .zip file.
 
-If you don't already have a Vite project, create one using the following command:
+## Frontend Setup (Vite/React)
+Navigate to the root directory of the project (you should folders like: `src`, `public`, `node_modules`).
+Run `npm install` to install the required frontend dependencies.
 
 ```bash
-npm init vite@latest my-vite-app
-cd my-vite-app
+npm install
+
+```
+
+## Backend Setup (GoLang)
+Navigate to the backend directory.
+
+```bash
+cd .\backend\
+```
+
+Make sure you have Golang installed correctly and the `go` command is available
+<br>
+<br>
+Run `go mod download` to install the required backend dependencies.
+```bash
+go mod download
+```
+
+## Run The Backend Server
+
+In the backend directory, run `go run .\server.go`. This should start the Golang backend server.
+```bash
+go run .\server.go
+```
+
+## Run The Frontend Server
+
+Navigate back to the root directory. Run `npm run dev` to start the Vite development server for the frontend.
+```bash
+npm run dev
+```
+Vite should automatically start running the frontend server on an available port.
+<br>
+In your browser navigate to the IP Vite provides you `http://localhost:<port>/`
+<br>
+<br>
+The fullstack application should <i>hopefully</i> now be running on your machine!
