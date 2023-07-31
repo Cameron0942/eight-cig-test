@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eightvape</title>
+    <style>
+      /* Reset some default styles */
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      /* Header styles */
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      /* Hero section styles */
+      .hero {
+        /* background-image: url("https://images.pexels.com/photos/4175070/pexels-photo-4175070.jpeg"); */
+        /* background-image: url("https://images.pexels.com/photos/4598193/pexels-photo-4598193.jpeg"); */
+        background-image: url("https://images.unsplash.com/photo-1529641484336-ef35148bab06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+        /* background-image: url("https://images.unsplash.com/photo-1503582490911-31f54e0b9783?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px black;
+      }
+
+      .hero p {
+        text-shadow: 2px 2px black;
+        font-size: 24px;
+      }
+
+      /* Featured products section styles */
+      .featured-products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+      }
+
+      .product {
+        flex-basis: 30%;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(234, 232, 240);
+      }
+
+      .product img {
+        max-height: 300px;
+        width: 300px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .product img:hover {
+        cursor: pointer;
+      }
+
+      .product p {
+        text-align: center;
+        max-width: 100ch;
+      }
+
+      /* Shop by category section styles */
+      .categories {
+        display: flex;
+        justify-content: space-around;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      .category {
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: white;
+        text-shadow: 1px 1px black;
+        height: 200px;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        border-radius: 5px;
+      }
+
+      #disposables {
+        background-image: url("https://images.unsplash.com/photo-1594177936503-fe16d18a4816?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80");
+      }
+
+      #e-liquids {
+        background-image: url("https://images.unsplash.com/photo-1618589036063-e78447db6936?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+      }
+
+      #coils {
+        background-image: url("https://images.unsplash.com/photo-1613392083937-f68bcff3bf10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80");
+      }
+
+      #pod-devices {
+        background-image: url("https://images.unsplash.com/photo-1637303115143-68779e1b2f6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");
+      }
+
+      #kits {
+        background-image: url("https://images.unsplash.com/photo-1654259533135-4c0a1928bd77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80");
+      }
+
+      #tanks {
+        background-image: url("https://images.unsplash.com/photo-1621934801745-3eabc6d3ac89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80");
+      }
+
+      .category span {
+        padding: 8px;
+        background-color: rgba(0, 0, 0, 0.479);
+        border-radius: 4px;
+        width: 50%;
+      }
+
+      /* Deals of the day section styles */
+      .deals {
+        background-color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .deals h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .deals img {
+        max-height: 60%;
+        width: 60%;
+      }
+
+      /* Customer reviews section styles */
+      .reviews {
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .reviews h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      /* Newsletter section styles */
+      .newsletter {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 10px;
+      }
+
+      .newsletter input {
+        padding: 10px;
+        width: 200px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .newsletter button {
+        padding: 10px 20px;
+        background-color: #ff6b6b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .slider {
+        position: relative;
+        max-width: 700px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .slide {
+        flex: 0 0 100%;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+      .slider-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .prev-slide,
+      .next-slide {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboardbutton" style="display: flex; justify-content: center; align-items: center;">
+        <button onclick="dashboard();" style="height: 3vh;">Click here to see the MYSQL dashboard</button>
+    </div>
+    <section class="hero">
+      <div>
+        <h1>Welcome to Eightvape</h1>
+        <p>Discover the best vape products for you</p>
+      </div>
+    </section>
+
+    <header>
+      <nav>
+        <a href="#">Deals</a>
+        <a href="#">Juice</a>
+        <a href="#">Disposable Vapes</a>
+        <a href="#">Vapes</a>
+        <a href="#">Tanks</a>
+        <a href="#">Replacements</a>
+        <a href="#">Etc</a>
+        <a href="#">420</a>
+        <a href="#">Hemp</a>
+        <a href="#">Brands</a>
+        <a href="#">Quick Ship</a>
+        <a href="#">Vape Blog</a>
+      </nav>
+    </header>
+
+    <section class="featured-products">
+      <div class="product">
+        <img
+          src="https://www.eightvape.com/cdn/shop/products/purge-mods-mods-chimera-razorback-brass-purge-mods-the-king-20700-mod-5359606595695_1024x1024.jpg?v=1674574722"
+          alt="Purge Mods The King 20700 Mod"
+        />
+        <h3>Purge Mods The King 20700 Mod</h3>
+        <p>
+          Unmatched performance and aesthetics. The Purge Mods King 20700 Mod is
+          a unregulated mechanical mod that features competition-grade
+          performance metrics and a skillfully designed aesthetic body.
+        </p>
+      </div>
+      <div class="product">
+        <img
+          src="https://www.eightvape.com/cdn/shop/products/horizon-disposable-vape-horizontech-binaries-cabin-disposable-vape-5-10-000-puff-31551725600879_1024x1024.jpg?v=1674366825"
+          alt="HorizonTech Binaries Cabin Disposable Vape (5%, 10,000 Puff)"
+        />
+        <h3>HorizonTech Binaries Cabin Disposable Vape (5%, 10,000 Puff)</h3>
+        <p>
+          Try out HorizonTech's latest disposable, the Binaries Cabin vape!
+          Featuring approx. 10,000 puffs, a whopping 20ml capacity, a 650mAh
+          rechargeable battery, a 1.0ohm mesh coil, and many flavors! It even
+          offers a 99% nic restoration which you don't see on any other brand of
+          vape disposables! Head up North with the Binaries Cabin and the
+          Horizontech disposable vape!
+        </p>
+      </div>
+      <div class="product">
+        <img
+          src="https://www.eightvape.com/cdn/shop/products/voopoo-kits-voopoo-argus-pro-80w-pod-kit-31475187417199_1024x1024.jpg?v=1674410019"
+          alt="Voopoo Argus Pro 80W Pod Kit"
+        />
+        <h3>Voopoo Argus Pro 80W Pod Kit</h3>
+        <p>
+          The new Voopoo Argus Pro 80W Pod Kit is here! Built with premium
+          materials and ergonomic design, the Argus Pro Pod Kit looks and feels
+          great! Featuring a built-in 3000 mAh battery and a 4.5ml PnP pod tank
+          this is the perfect device for those looking to bridge the gap between
+          Mod and Pod.
+        </p>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="category" id="disposables"><span>Disposables</span></div>
+      <div class="category" id="e-liquids"><span>E-Liquids</span></div>
+      <div class="category" id="coils"><span>Coils</span></div>
+    </section>
+    <section class="categories">
+      <div class="category" id="pod-devices"><span>Pod Devices</span></div>
+      <div class="category" id="kits"><span>Kits</span></div>
+      <div class="category" id="tanks"><span>Tanks</span></div>
+    </section>
+
+    <section class="deals">
+      <h2>Deals of the Day</h2>
+      <div class="product">
+        <img
+          src="https://www.eightvape.com/cdn/shop/files/dummy-vapes-disposable-tekashi-69_1200x_crop_center.webp?v=1690483058"
+          alt="Deal 1"
+        />
+        <h3>Vape-tastic Discount Delight!</h3>
+        <p>🚨 BOGO ALERT! 🚨 Unleash your wild side with Dummy Vapes by 6ix9ine! Get twice the flavor, twice the intensity, and twice the fun with our Buy One, Get One FREE offer! Elevate your vaping game and embrace the vibrant world of Dummy Vapes - the ultimate choice for those who dare to be bold! Limited time only, so grab your favorite flavors now and witness the power of Dummy Vapes! 🔥💨</p>
+      </div>
+      <div class="product">
+        <img
+          src="https://www.eightvape.com/cdn/shop/files/four-seasons-tobacco-vape-juice_1200x_crop_center.webp?v=1690227937"
+          alt="Deal 2"
+        />
+        <h3>Final Call for Elegance: Four Seasons Fine Tobacco - Order Yours Now!</h3>
+        <p>Hurry, before it's gone! Experience the luxury of Four Seasons Fine Tobacco, but act fast - our limited supply won't last long! Embrace the exquisite flavors and unmatched quality of our premium tobacco while you still can. Don't miss out on this exclusive opportunity to savor the essence of Four Seasons. Order now!</p>
+      </div>
+    </section>
+
+    <section class="slider">
+        <h1 style='text-align: center; margin-bottom: 5px;'>Check out some of our latest gear</h1>
+      <div class="slides">
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1619872032623-df17e99e5b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1635347319093-f6b572e25867?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1606593955195-6a0a8b48efb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Slide 3" />
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1625125875922-dd44b1ec9b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80" alt="Slide 4" />
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1635481753580-7c1defd2679f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="Slide 5" />
+        </div>
+      </div>
+    </section>
+    <div class="slider-controls">
+      <button class="prev-slide" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next-slide" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- <section class="reviews">
+      <h2>Customer Reviews</h2>
+    </section> -->
+
+    <section class="newsletter">
+      <h2>Subscribe to Our Newsletter</h2>
+      <form>
+        <input type="email" placeholder="Your Email Address" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </body>
+</html>

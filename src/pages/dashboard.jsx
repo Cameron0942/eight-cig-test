@@ -26,7 +26,7 @@ const Dashboard = () => {
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Name", width: 150 },
     { field: "performance", headerName: "Performance", width: 130 },
-    { field: "date", headerName: "Date", width: 600 },
+    { field: "date", headerName: "Date", width: 980 },
   ];
 
   // Map employeeInfo data to the format expected by DataGrid
@@ -49,11 +49,11 @@ const Dashboard = () => {
         backend server. The backend server then handles querying the MySQL
         database, and returns the data with the employee performance arranged
         from highest to lowest. I used a Material UI DataGrid to display the
-        results below. By default the employee data is sorted by performance from highest to
-        lowest, but can also be sorted by name and date.
+        results below. By default the employee data is sorted by performance
+        from highest to lowest, but can also be sorted by name and date.
       </p>
       <br />
-      <Box style={{ width: "50%", margin: "0 auto" }}>
+      <Box style={{ width: "70%", margin: "0 auto" }}>
         <DataGrid
           rows={rows}
           columns={columns}
@@ -83,10 +83,10 @@ const Dashboard = () => {
             window.location.href = "/";
           }}
           sx={{
-            background: "linear-gradient(#c0060d, #a31f25)", // Specify the linear gradient here for the button
-            color: "#fff", // Set the text color to white for better visibility on the gradient background
+            background: "linear-gradient(#c0060d, #a31f25)", 
+            color: "#fff", 
             "&:hover": {
-              color: "#71ff79", // Set the text color to green on hover
+              color: "#71ff79",
             },
           }}
         >

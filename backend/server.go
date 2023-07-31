@@ -94,7 +94,7 @@ func fetchEmployeeData(dbUser, dbPassword, dbHost, dbName string, dbPort int) []
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     // Check if the request method is GET
     if r.Method == http.MethodGet {
-        // Your logic to handle the home route ("/") for GET requests goes here
+        http.ServeFile(w, r, "partTwo.html")
 
         // Write a response back to the client
         fmt.Fprintf(w, "This is the home page for GET request!")
