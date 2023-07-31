@@ -55,7 +55,7 @@ go run .\server.go
 
 ## Run The Frontend Server
 
-Navigate back to the root directory. Run `npm run dev` to start the Vite development server for the frontend.
+Open a separate terminal and navigate back to the root directory. Run `npm run dev` to start the Vite development server for the frontend.
 ```bash
 npm run dev
 ```
