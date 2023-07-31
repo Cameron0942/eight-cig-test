@@ -90,7 +90,7 @@ const Dashboard = () => {
             },
           }}
         >
-          Back to homepage
+          Back to eightvape store
         </Button>
       </Box>
     </>
